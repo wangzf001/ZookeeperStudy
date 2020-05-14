@@ -17,7 +17,7 @@ public class ZookeeperDemo {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        String ZK_NET = "192.168.0.16:2181,192.168.0.17:2181,192.168.0.18:2181";
+        String ZK_NET = "172.16.2.106:2181,172.16.2.182:2181,172.16.2.98:2181";
 
 
         CountDownLatch countDownLatch = new CountDownLatch(1);

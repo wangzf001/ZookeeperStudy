@@ -71,3 +71,33 @@ ACL：`A/C/I/D/admin  `
     ephemeralOwner = 0x0   创建临时节点的时候，会有一个sessionId 。 该值存储的就是这个sessionid  
     dataLength = 3    数据值长度  
     numChildren = 0  子节点数  
+    
+java api的使用
+权限控制模式
+schema：授权对象
+ip     : 192.168.1.1
+Digest  : username:password
+world  : 开放式的权限控制模式，数据节点的访问权限对所有用户开放。 world:anyone
+super  ：超级用户，可以对zookeeper上的数据节点进行操作
+
+连接状态
+KeeperStat.Expired  在一定时间内客户端没有收到服务器的通知， 则认为当前的会话已经过期了。
+KeeperStat.Disconnected  断开连接的状态
+KeeperStat.SyncConnected  客户端和服务器端在某一个节点上建立连接，并且完成一次version、zxid同步
+KeeperStat.authFailed  授权失败
+
+事件类型
+NodeCreated  当节点被创建的时候，触发
+NodeChildrenChanged  表示子节点被创建、被删除、子节点数据发生变化
+NodeDataChanged    节点数据发生变化
+NodeDeleted        节点被删除
+None   客户端和服务器端连接状态发生变化的时候，事件类型就是None  
+ 
+ -
+ 
+ curator连接的重试策略
+ 
+ ExponentialBackoffRetry()  衰减重试 
+ RetryNTimes 指定最大重试次数
+ RetryOneTime 仅重试一次
+ RetryUnitilElapsed 一直重试知道规定的时间

@@ -19,8 +19,7 @@ public class ApiOperatorDemo implements Watcher {
     static Stat stat;
 
     public static void main(String[] args) {
-        final String ZK_NET = "192.168.0.16:2181,192.168.0.17:2181,192.168.0.18:2181";
-
+        final String ZK_NET = "172.16.2.106:2181,172.16.2.182:2181,172.16.2.98:2181";
         try {
             zooKeeper = new ZooKeeper(ZK_NET, 5000, new ApiOperatorDemo());
             countDownLatch.await();
